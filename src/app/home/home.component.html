@@ -15,18 +15,20 @@
         </div>
     </div>
 <div class="w-screen flex justify-center">
-    <table class="w-[1200px] border-solid border-2 ">
+    <table class="w-[1200px] border-solid border-2" >
         <tr class="border-solid border-2">
+            <th class="border-solid border-2"></th>
             <th class="border-solid border-2">Name</th>
             <th class="border-solid border-2">Negara</th>
             <th class="border-solid border-2">Kota</th>
             <th class="border-solid border-2">Balance</th>
         </tr>
-        <tr *ngFor="let item of friendslist" class="">
-            <td class="border-solid border-2">{{item.name}}</td>
-            <td class="border-solid border-2">{{item.negara}}</td>
-            <td class="border-solid border-2">{{item.kota}}</td>
-            <td class="border-solid border-2">{{item.balance}}</td>
+        <tr class=""  *ngFor="let data of tutorials">
+            <td class="border-solid border-2"><img src={{data.avatar}} alt=""></td>
+            <td class="border-solid border-2">{{data.name}}</td>
+            <td class="border-solid border-2">{{data.country}}</td>
+            <td class="border-solid border-2">{{data.city}}</td>
+            <td class="border-solid border-2">{{data.balance}}</td>
         </tr>
     </table>
 </div>

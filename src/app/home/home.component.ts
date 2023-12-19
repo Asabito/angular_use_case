@@ -1,59 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { customer } from '../model/customer-model';
+import { CustomerService } from '../service/customer.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  friendslist = [
-    {
-      name: 'Nishant',
-      negara: "Indonesia",
-      kota: "Jakarta",
-      balance: 900000
-    },
-    {
-      name: 'Shailesh',
-      negara: "USA",
-      kota: "Los Angeless",
-      balance: 590000
-    },
-    {
-      name: 'Akshay',
-      negara: "India",
-      kota: "Kolkota",
-      balance: 125000
-    },
-    {
-      name: 'Uday',
-      negara: "Indonesia",
-      kota: "Jakarta",
-      balance: 234000
-    },
-    {
-      name: 'Abhishek',
-      negara: "India",
-      kota: "Mumbai",
-      balance: 421000
-    },
-    {
-      name: 'Mayank',
-      negara: "Indonesia",
-      kota: "Jakarta",
-      balance: 104000
-    },
-    {
-      name: 'Ashish',
-      negara: "Pakistan",
-      kota: "Pakistan",
-      balance: 120000
-    },
-    {
-      name: 'Raju',
-      negara: "Indonesia",
-      kota: "Jakarta",
-      balance: 43000
-    },
-  ]
+
+export class HomeComponent implements OnInit{
+  title = 'get-post';
+  tutorials: customer[] =[];
+
+  constructor(
+    private tutorialService: CustomerService
+  ) {}
+
+  ngOnInit(): void {
+    this.getDataTutorial()
+  }
+
+  // Get all data: component
+  getDataTutorial(){
+    this.tutorialService.getAll().subscribe((item) =>{
+      this.tutorials = item
+      console.log('success data', item)
+    });
+  }
+
+  // Get data by ID: component
+  getDataTutorialId(id: any){
+    this.tutorialService.get(id).subscribe((res) =>{
+      console.log('success get data', res)
+    })
+  }
+
+  // Post data: component
+  // deleteDataTutorial(id:any){
+  //   this.tutorialService.delete(id).subscribe(() =>{
+  //     console.log('success delete data')
+  //   })
+  // }
 }
