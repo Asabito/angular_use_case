@@ -1,21 +1,6 @@
-<div class="input-data">
-    <label for="title">Title</label>
-    <input #title type="text" id="title" name="title">
-
-    <label for="description">Description</label>
-    <input #desc type="text" id="desc" name="desc" >
-
-    <!-- <button (click)="postDataTutorial(title.value, desc.value)">Post!</button> -->
+<div class="container">
+  <router-outlet></router-outlet>
 </div>
-
-<div class="content" *ngFor="let data of tutorials">
-    <div class="wrapper">
-        <p>{{data.name}}</p>
-        <p>{{data.city}}</p>
-        <p>{{data.country}}</p>
-        <p>{{data.balance}}</p>
-        <img src={{data.avatar}}>
-        <button (click)="getDataTutorialId(data.id)">Get ID!</button>
-        <!-- <button (click)="deleteDataTutorial(data.id)">Delete</button> -->
-    </div>
-</div>
+<div class="navbar">
+  <a class="link" href="">Home</a>
+  <a class="link" href="/profile">Profile</a>
